@@ -12,8 +12,7 @@ Installation
 =============
 1. Run ``setup.py`` or add ``simplemathcaptcha`` to your PYTHONPATH.
 2. Add ``simplemathcaptcha`` to your INSTALLED_APPS.
-3. Have a look at the included sample_project to see a working example
-and to run unit tests.
+3. Have a look at the included sample_project to see a working example and to run unit tests.
 
 Usage
 =============
