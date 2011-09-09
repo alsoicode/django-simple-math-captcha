@@ -20,12 +20,13 @@ Forms
 ----------------------
 To add the captcha field to your form:
 
-    from django import forms
-    from simplemathcaptcha.fields import MathCaptchaField
+```from django import forms
+from simplemathcaptcha.fields import MathCaptchaField
     
-    class MyForm(forms.Form):
-        some_text_field = models.CharField(max_length=50)
-        captcha = MathCaptchaField(required=True)
+class MyForm(forms.Form):
+    some_text_field = models.CharField(max_length=50)
+    captcha = MathCaptchaField(required=True)`
+```      
 
 You must manually set the field to required, as MultiValueFields make all
 fields optional when the field in initialized. Optionally, you can pass in 3
