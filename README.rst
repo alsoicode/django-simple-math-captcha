@@ -5,8 +5,8 @@ django-simple-math-captcha
 What is it?
 =============
 A multi-value-field that presents a human answerable question,
-with no configuration necessary, and can be configured with
-arguments to the field constructor.
+with no settings.py configuration necessary, but instead can be
+configured with arguments to the field constructor.
 
 Installation
 =============
@@ -46,7 +46,7 @@ arguments to the field to configure it.
 Rationale
 =============
 Other math captcha fields can present questions that require decimal answers,
-answers that could be negative values and require settings.py configuration.
+answers that could be negative values and that require settings.py configuration.
 This project aims to provide a single field with minimal or no configuration
 necessary and reduce or prevent spam form submissions.
 
