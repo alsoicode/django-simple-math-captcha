@@ -56,7 +56,7 @@ class MathCaptchaField(MultiValueField):
         operator_for_label = '&times;' if operator == '*' else operator
 
         #set label for field
-        kwargs['label'] = mark_safe('What is %i %s %i' % (x, operator_for_label, y))
+        kwargs['label'] = mark_safe('What is %i %s %i?' % (x, operator_for_label, y))
 
         #hash question and set initial value of form
         hashed_question = hash_question(question)
