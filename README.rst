@@ -11,8 +11,8 @@ configured with arguments to the field constructor.
 Installation
 =============
 1. Run ``setup.py`` or add ``simplemathcaptcha`` to your PYTHONPATH.
-3. Add ``simplemathcaptcha`` to your INSTALLED_APPS.
-4. Have a look at the included sample_project to see a working example
+2. Add ``simplemathcaptcha`` to your INSTALLED_APPS.
+3. Have a look at the included sample_project to see a working example
 and to run unit tests.
 
 Usage
