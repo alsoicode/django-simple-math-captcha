@@ -20,7 +20,6 @@ Forms
 ----------------------
 To add the captcha field to your form:
 
-    #forms.py
     from django import forms
     from simplemathcaptcha.fields import MathCaptchaField
     
