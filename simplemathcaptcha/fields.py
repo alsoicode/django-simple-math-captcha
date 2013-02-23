@@ -3,16 +3,20 @@ from django import forms
 from django.forms.fields import MultiValueField, IntegerField, CharField
 from django.template.defaultfilters import mark_safe
 
-from utils import hash_question, unhash_question, eval_answer, \
-    get_operator, get_numbers
+from .utils import hash_answer, get_operator, get_numbers
 
 
 class MathCaptchaWidget(forms.MultiWidget):
-    def __init__(self, attrs=None):
-        self.attrs = attrs or {}
+    def __init__(self, start_int=0, end_int=10, attrs=None):
+        self.start_int = start_int
+        self.end_int = end_int
+        self.attrs = attrs or {'size': '5'}
         widgets = (
-            forms.TextInput(attrs={'size' : '5'}), #this is the answer input field
-            forms.HiddenInput() #this is the hashed question field to compare to
+            # this is the answer input field
+            forms.TextInput(attrs=attrs),
+
+            # this is the hashed answer field to compare to
+            forms.HiddenInput()
         )
         super(MathCaptchaWidget, self).__init__(widgets, attrs)
 
@@ -28,7 +32,34 @@ class MathCaptchaWidget(forms.MultiWidget):
         return [None, None]
 
     def format_output(self, rendered_widgets):
-        return u'%s%s' % (rendered_widgets[0], rendered_widgets[1])
+        output = u'%s%s' % (rendered_widgets[0], rendered_widgets[1])
+        output = u'<span>%s</span>%s' % (self.question, output)
+        return output
+    
+    def render(self, name, value, attrs=None):
+        # get integers for calculation
+        x, y = get_numbers(self.start_int, self.end_int)
+        
+        # set up question and answer
+        operator = get_operator()
+        calc = {
+            '*': lambda a, b: a * b,
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+        }
+        total = calc[operator](x, y)
+        
+        # make multiplication operator more human-readable
+        operator_for_label = '&times;' if operator == '*' else operator
+        
+        # set question to display in output
+        self.question = mark_safe(
+            'What is %i %s %i?' % (x, operator_for_label, y))
+        
+        # hash answer and set as the hidden value of form
+        value = ['', hash_answer(total)]
+        
+        return super(MathCaptchaWidget, self).render(name, value, attrs=attrs)
 
 
 class MathCaptchaField(MultiValueField):
@@ -38,31 +69,15 @@ class MathCaptchaField(MultiValueField):
                  error_message='Please check your math and try again', \
                  *args, **kwargs):
 
-        #set up error messages
+        # set up error messages
         self.error_message = error_message
         errors = self.default_error_messages.copy()
         if 'error_messages' in kwargs:
             errors.update(kwargs['error_messages'])
         localize = kwargs.get('localize', False)
+        kwargs['widget'] = MathCaptchaWidget(start_int, end_int)
 
-        #get integers for question
-        x, y = get_numbers(start_int, end_int)
-
-        #set up question
-        operator = get_operator()
-        question = '%i %s %i' % (x, operator, y)
-
-        #make multiplication operator more human-readable
-        operator_for_label = '&times;' if operator == '*' else operator
-
-        #set label for field
-        kwargs['label'] = mark_safe('What is %i %s %i?' % (x, operator_for_label, y))
-
-        #hash question and set initial value of form
-        hashed_question = hash_question(question)
-        kwargs['initial'] = '%s|%s' % ('', hashed_question)
-
-        #set fields
+        # set fields
         fields = (
             IntegerField(min_value=0, localize=localize),
             CharField(max_length=255)
@@ -73,10 +88,8 @@ class MathCaptchaField(MultiValueField):
         """Compress takes the place of clean with MultiValueFields"""
         if data_list:
             answer = data_list[0]
-            #unhash and eval question. Compare to answer.
-            unhashed_question = unhash_question(data_list[1])
-            unhashed_answer = eval_answer(unhashed_question)
-            if answer != unhashed_answer:
+            real_hashed_answer = data_list[1]
+            hashed_answer = hash_answer(answer)
+            if hashed_answer != real_hashed_answer:
                 raise ValidationError(self.error_message)
-            return answer
         return None

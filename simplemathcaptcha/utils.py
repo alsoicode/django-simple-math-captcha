@@ -1,34 +1,31 @@
-from binascii import hexlify, unhexlify
+from binascii import hexlify
 from random import randint, choice
+from hashlib import sha1
 
 from django.conf import settings
-from django.utils.hashcompat import sha_constructor
 
-from constants import OPERATORS
+from .constants import OPERATORS
 
 
-def hash_question(question):
-    return sha_constructor(settings.SECRET_KEY \
-                                    + question).hexdigest() + hexlify(question)
+def hash_answer(value):
+    answer = str(value)
+    return sha1(settings.SECRET_KEY + answer).hexdigest() + hexlify(answer)
 
-def unhash_question(question):
-    return unhexlify(question[40:])
-
-def eval_answer(unhashed_question):
-    return eval(unhashed_question)
 
 def get_operator():
     return choice(OPERATORS)
 
+
 def get_numbers(start_int, end_int):
     if start_int < 0 or end_int < 0:
-        raise Warning(u'MathCaptchaField requires positive integers for start_int and end_int.')
+        raise Warning(u'MathCaptchaField requires positive integers '
+                      u'for start_int and end_int.')
     try:
         x = randint(start_int, end_int)
         y = randint(start_int, end_int)
     except ValueError:
-        x = randint(10, 10)
-        y = randint(10, 10)
+        x = randint(1, 10)
+        y = randint(1, 10)
 
     #avoid negatives
     if y > x:
