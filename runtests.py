@@ -11,17 +11,19 @@ if not settings.configured:
                 'NAME': ':memory:',
             },
         },
-        INSTALLED_APPS=(),
+        INSTALLED_APPS=(
+            'test_simplemathcaptcha',
+        ),
         ROOT_URLCONF=None,
         USE_TZ=True,
-        SECRET_KEY='foobar'
+        SECRET_KEY='foobar',
     )
 
 
-def runshell():
-    argv = sys.argv[:1] + ['shell'] + sys.argv[1:]
+def runtests():
+    argv = sys.argv[:1] + ['test'] + sys.argv[1:]
     execute_from_command_line(argv)
 
 
 if __name__ == '__main__':
-    runshell()
+    runtests()

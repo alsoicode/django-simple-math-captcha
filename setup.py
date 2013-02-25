@@ -13,7 +13,7 @@ setup(
     author='Brandon Taylor',
     author_email='btaylorweb@gmail.com',
     url='http://btaylorweb.com/',
-    packages=find_packages(exclude=['sample_project']),
+    packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
     classifiers=['Development Status :: 4 - Beta',

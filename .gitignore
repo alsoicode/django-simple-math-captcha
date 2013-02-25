@@ -1,12 +1,8 @@
 .project
 .pydevproject
 .settings
+.coverage
 *.pyc
 *.pyo
 django_simple_math_captcha.egg-info
 dist
-django_simple_math_captcha.egg-info/dependency_links.txt
-django_simple_math_captcha.egg-info/PKG-INFO
-django_simple_math_captcha.egg-info/not-zip-safe
-django_simple_math_captcha.egg-info/SOURCES.txt
-django_simple_math_captcha.egg-info/top_level.txt
