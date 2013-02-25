@@ -33,41 +33,41 @@ To add the captcha field to your form::
 
 Optionally, you can pass in the following arguments to the field to configure it.
 
-``start_int``
+start_int
     The number at which the field should begin its range of random numbers.
-    This value will be used passed into the creation of an
+    This value will be used passed into the creation of a
     ``simplemathcaptcha.widgets.MathCaptchaWidget`` for this field.
 
     Default value: ``1``
 
-``end_int``
+end_int
     The number at which the field should end its range of random numbers.
     This value will be used passed into the creation of an
-    `simplemathcaptcha.widgets.MathCaptchaWidget` for this field.
+    ``simplemathcaptcha.widgets.MathCaptchaWidget`` for this field.
 
     Default value: ``10``
 
-``error_messages``
+error_messages
     A dictionary of error messages.  The keys you can use are ``invalid``
     and ``invalid_number``.
 
-    ``invalid``
+    invalid
         is the message to display when the provided answer is incorrect
 
         Default value: ``"Check your math and try again."``
 
-    ``invalid_number``
+    invalid_number
         is the message to display when the entry is not a whole
         number
 
         Default value: ``"Enter a whole number."``
 
-``question_class``
+question_class
     A css class to use for the span containing the displayed question.
 
     Default value: ``"captcha-question"``
 
-``widget``
+widget
     The widget instance to use, instead of the field creating an instance
     of ``simplemathcaptcha.widgets.MathCaptchaWidget``.  When provided,
     it must be an instatiated widget, not a widget class.
