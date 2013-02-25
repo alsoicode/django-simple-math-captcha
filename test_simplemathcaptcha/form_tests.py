@@ -21,7 +21,7 @@ class FormTests(TestCase):
         ops = ['+', '-']
         ints = [1, 3, 1, 3]
         mock_randint.side_effect = lambda x, y: ints.pop(0)
-        mock_hash_answer.side_effect = lambda x: "answer={}".format(x)
+        mock_hash_answer.side_effect = lambda x: "answer=%s" % x
         mock_get_operator.side_effect = lambda: ops.pop(0)
 
         class F(forms.Form):

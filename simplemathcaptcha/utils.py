@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-from binascii import hexlify
 from random import randint, choice
 from hashlib import sha1
 
@@ -11,20 +10,21 @@ from django.utils import six
 MULTIPLY = '*'
 ADD = '+'
 SUBTRACT = '-'
-OPERATORS = {
+CALCULATIONS = {
     MULTIPLY: lambda a, b: a * b,
     ADD: lambda a, b: a + b,
     SUBTRACT: lambda a, b: a - b,
 }
+OPERATORS = tuple(CALCULATIONS)
 
 
 def hash_answer(value):
     answer = six.text_type(value)
-    return sha1(settings.SECRET_KEY + hexlify(answer)).hexdigest()
+    return sha1(settings.SECRET_KEY + answer).hexdigest()
 
 
 def get_operator():
-    return choice(OPERATORS.keys())
+    return choice(OPERATORS)
 
 
 def get_numbers(start_int, end_int, operator):
@@ -39,7 +39,7 @@ def get_numbers(start_int, end_int, operator):
 
 
 def calculate(x, y, operator):
-    func = OPERATORS[operator]
+    func = CALCULATIONS[operator]
     total = func(x, y)
     return total
 
