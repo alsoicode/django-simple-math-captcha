@@ -20,7 +20,8 @@ OPERATORS = tuple(CALCULATIONS)
 
 def hash_answer(value):
     answer = six.text_type(value)
-    return sha1(settings.SECRET_KEY + answer).hexdigest()
+    to_encode = (settings.SECRET_KEY + answer).encode('utf-8')
+    return sha1(to_encode).hexdigest()
 
 
 def get_operator():
