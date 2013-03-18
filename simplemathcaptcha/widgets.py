@@ -9,10 +9,12 @@ from .utils import hash_answer, get_operator, get_numbers, calculate
 
 
 class MathCaptchaWidget(forms.MultiWidget):
-    def __init__(self, start_int=1, end_int=10, question_class=None,
-                 attrs=None):
+    def __init__(self, start_int=1, end_int=10, question_tmpl=None,
+                 question_class=None, attrs=None):
         self.start_int, self.end_int = self.verify_numbers(start_int, end_int)
         self.question_class = question_class or 'captcha-question'
+        self.question_tmpl = (
+            question_tmpl or _('What is %(num1)i %(operator)s %(num2)i?'))
         self.question_html = None
         widget_attrs = {'size': '5'}
         widget_attrs.update(attrs or {})
@@ -56,10 +58,13 @@ class MathCaptchaWidget(forms.MultiWidget):
         return hash_answer(total)
 
     def set_question(self, x, y, operator):
-        question_tmpl = _('What is %i %s %i?')
         # make multiplication operator more human-readable
         operator_for_label = '&times;' if operator == '*' else operator
-        question = question_tmpl % (x, operator_for_label, y)
+        question = self.question_tmpl % {
+            'num1': x,
+            'operator': operator_for_label,
+            'num2': y
+        }
 
         html = '<span class="%s">%s</span>' % (self.question_class, question)
         self.question_html = mark_safe(html)
