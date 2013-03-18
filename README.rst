@@ -62,6 +62,11 @@ error_messages
 
         Default value: ``"Enter a whole number."``
 
+question_tmpl
+    A string with format placeholders to use for the displayed question.
+
+    Default value: ``"What is %(num1)i %(operator)s %(num2)i?"``
+
 question_class
     A css class to use for the span containing the displayed question.
 
