@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
-    classifiers=['Development Status :: 4 - Beta',
+    classifiers=['Development Status :: 5 - Production/Stable',
                    'Environment :: Web Environment',
                    'Framework :: Django',
                    'Intended Audience :: Developers',
