@@ -2,7 +2,7 @@
 .pydevproject
 .settings
 .coverage
-*.pyc
-*.pyo
+*.py[c|o]
+*.sublime-*
 django_simple_math_captcha.egg-info
 dist
