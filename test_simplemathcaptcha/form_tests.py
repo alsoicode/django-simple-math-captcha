@@ -59,4 +59,3 @@ class FormTests(TestCase):
 
         f = F({'captcha_0': 4, 'captcha_1': hashed_answer})
         self.assertFalse(f.is_valid())
-

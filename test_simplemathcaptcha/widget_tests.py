@@ -10,7 +10,7 @@ from simplemathcaptcha.widgets import MathCaptchaWidget
 
 
 class WidgetTests(TestCase):
-    
+
     # init
     def test_instantiation(self):
         w = MathCaptchaWidget(1, 10)
@@ -118,4 +118,3 @@ class WidgetTests(TestCase):
             <span class="question">
                 What is 2 + 4?
             </span>""")
-

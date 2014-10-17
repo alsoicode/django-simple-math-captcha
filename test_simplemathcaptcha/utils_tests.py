@@ -38,7 +38,7 @@ class UtilsTests(TestCase):
     def test_calculate_subtracting(self):
         result = utils.calculate(1, 1, '-')
         self.assertEqual(result, 0)
-    
+
     def test_calculate_multiplying(self):
         result = utils.calculate(1, 1, '*')
         self.assertEqual(result, 1)
@@ -46,7 +46,7 @@ class UtilsTests(TestCase):
     def test_calculate_raises_on_unknown_op(self):
         with self.assertRaises(KeyError):
             utils.calculate(1, 1, '/')
-    
+
     def test_hash_answer_is_string(self):
         result = utils.hash_answer(1)
         self.assertIsInstance(result, six.string_types)
@@ -59,4 +59,3 @@ class UtilsTests(TestCase):
     def test_hash_answer_returns_hexdigest(self):
         result = utils.hash_answer(1)
         self.assertEqual(len(result), 40)
-

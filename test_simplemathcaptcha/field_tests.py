@@ -11,7 +11,7 @@ from simplemathcaptcha.fields import MathCaptchaField
 
 
 class FieldTests(TestCase):
-    
+
     def test_instantiation(self):
         f = MathCaptchaField()
         self.assertTrue(f.required)
@@ -51,4 +51,3 @@ class FieldTests(TestCase):
         f = MathCaptchaField()
         result = f.compress([])
         self.assertIsNone(result)
-
