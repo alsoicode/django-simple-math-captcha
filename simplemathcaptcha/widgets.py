@@ -34,21 +34,21 @@ class MathCaptchaWidget(forms.MultiWidget):
         output = super(MathCaptchaWidget, self).format_output(rendered_widgets)
         output = '%s%s' % (self.question_html, output)
         return output
-    
+
     def render(self, name, value, attrs=None):
         # hash answer and set as the hidden value of form
         hashed_answer = self.generate_captcha()
         value = ['', hashed_answer]
-        
+
         return super(MathCaptchaWidget, self).render(name, value, attrs=attrs)
-    
+
     def generate_captcha(self):
         # get operator for calculation
         operator = get_operator()
 
         # get integers for calculation
         x, y = get_numbers(self.start_int, self.end_int, operator)
-        
+
         # set question to display in output
         self.set_question(x, y, operator)
 
@@ -78,4 +78,3 @@ class MathCaptchaWidget(forms.MultiWidget):
             raise Warning('MathCaptchaWidget requires end_int be greater '
                           'than start_int.')
         return start_int, end_int
-

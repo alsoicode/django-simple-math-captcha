@@ -43,4 +43,3 @@ def calculate(x, y, operator):
     func = CALCULATIONS[operator]
     total = func(x, y)
     return total
-
