@@ -1,5 +1,3 @@
-https://travis-ci.org/alsoicode/django-simple-math-captcha.svg
-
 ==========================
 django-simple-math-captcha
 ==========================
