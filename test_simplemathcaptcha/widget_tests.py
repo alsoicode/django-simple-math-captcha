@@ -18,7 +18,7 @@ class WidgetTests(TestCase):
         self.assertEqual(w.start_int, 1)
         self.assertEqual(w.end_int, 10)
         self.assertEqual(six.text_type(w.question_tmpl),
-                         'What is %(num1)i %(operator)s %(num2)i?')
+                         'What is %(num1)i %(operator)s %(num2)i? ')
         self.assertEqual(w.question_class, 'captcha-question')
 
     def test_default_question_tmpl(self):
