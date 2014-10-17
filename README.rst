@@ -2,6 +2,9 @@
 django-simple-math-captcha
 ==========================
 
+.. image:: https://travis-ci.org/alsoicode/django-simple-math-captcha.svg
+   :target: https://travis-ci.org/alsoicode/django-simple-math-captcha
+
 What is it?
 ===========
 A multi-value-field that presents a human answerable question,
