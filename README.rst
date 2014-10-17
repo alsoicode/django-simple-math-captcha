@@ -1,6 +1,13 @@
+https://travis-ci.org/alsoicode/django-simple-math-captcha.svg
+
 ==========================
 django-simple-math-captcha
 ==========================
+
+.. image:: https://travis-ci.org/alsoicode/django-simple-math-captcha.svg
+   :target: https://travis-ci.org/alsoicode/django-simple-math-captcha
+
+Current Version: 1.0.4
 
 What is it?
 ===========
@@ -26,7 +33,7 @@ To add the captcha field to your form::
 
     from django import forms
     from simplemathcaptcha.fields import MathCaptchaField
-    
+
     class MyForm(forms.Form):
         some_text_field = models.CharField(max_length=50)
         captcha = MathCaptchaField()
@@ -94,7 +101,7 @@ Status
 ======
 django-simple-math-captcha is currently used in production.
 
-Feautures
+Features
 =========
 - Simple addition, subtraction or multiplication question for captcha
 - No configuration necessary
