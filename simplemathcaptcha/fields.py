@@ -38,9 +38,9 @@ class MathCaptchaField(forms.MultiValueField):
         if 'widget' not in kwargs or not kwargs['widget']:
             kwargs['widget'] = MathCaptchaWidget(**widget_params)
         elif widget_params:
-            msg = '%s must be omitted when widget is provided for %s.'
-            msg = msg % (' and '.join(list(widget_params)),
-                         self.__class__.__name__)
+            msg = _('%(params)s must be omitted when widget is provided for %(name)s.')
+            msg = msg % {'params':' and '.join(list(widget_params)),
+                         'name': self.__class__.__name__}
             raise TypeError(msg)
 
     def _extract_widget_params(self, kwargs):
