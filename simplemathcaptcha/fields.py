@@ -39,7 +39,7 @@ class MathCaptchaField(forms.MultiValueField):
             kwargs['widget'] = MathCaptchaWidget(**widget_params)
         elif widget_params:
             msg = _('%(params)s must be omitted when widget is provided for %(name)s.')
-            msg = msg % {'params':' and '.join(list(widget_params)),
+            msg = msg % {'params': ' and '.join(list(widget_params)),
                          'name': self.__class__.__name__}
             raise TypeError(msg)
 

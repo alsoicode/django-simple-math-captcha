@@ -32,7 +32,7 @@ def get_numbers(start_int, end_int, operator):
     x = randint(start_int, end_int)
     y = randint(start_int, end_int)
 
-    #avoid negative results for subtraction
+    # avoid negative results for subtraction
     if y > x and operator == SUBTRACT:
         x, y = y, x
 

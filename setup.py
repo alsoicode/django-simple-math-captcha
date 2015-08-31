@@ -12,7 +12,7 @@ setup(
     long_description=README,
     author='Brandon Taylor',
     author_email='alsoicode@gmail.com',
-    url='https://brandonftaylor.com/',
+    url='https://alsoicode.github.io/',
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
