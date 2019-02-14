@@ -33,18 +33,18 @@ class FormTests(TestCase):
         self.assertHTMLEqual(result1, """
             <tr><th><label for="id_captcha_0">Captcha:</label></th><td>
                 <span class="captcha-question">What is 1 + 3?</span>
-                <input id="id_captcha_0" name="captcha_0"
+                <input id="id_captcha_0" required name="captcha_0"
                        size="5" type="text" />
-                <input id="id_captcha_1" name="captcha_1"
+                <input id="id_captcha_1" required name="captcha_1"
                        type="hidden" value="answer=4" />
             </td></tr>""")
 
         self.assertHTMLEqual(result2, """
             <tr><th><label for="id_captcha_0">Captcha:</label></th><td>
                 <span class="captcha-question">What is 3 - 1?</span>
-                <input id="id_captcha_0" name="captcha_0"
+                <input id="id_captcha_0" required name="captcha_0"
                        size="5" type="text" />
-                <input id="id_captcha_1" name="captcha_1"
+                <input id="id_captcha_1" required name="captcha_1"
                        type="hidden" value="answer=2" />
             </td></tr>""")
 

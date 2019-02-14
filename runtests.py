@@ -12,6 +12,7 @@ if not settings.configured:
             },
         },
         INSTALLED_APPS=(
+            'simplemathcaptcha',
             'test_simplemathcaptcha',
         ),
         ROOT_URLCONF=None,
