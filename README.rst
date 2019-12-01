@@ -5,7 +5,7 @@ django-simple-math-captcha
 .. image:: https://travis-ci.org/alsoicode/django-simple-math-captcha.svg
    :target: https://travis-ci.org/alsoicode/django-simple-math-captcha
 
-Current Version: 1.0.8
+Current Version: 1.0.9
 
 What is it?
 ===========
