@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: simplecaptcha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-30 18:13-0600\n"
+"PO-Revision-Date: 2015-08-30 18:18-0600\n"
+"Last-Translator: Thierry BOULOGNE <luis.zarate@solvosoft.com>\n"
+"Language-Team: LANGUAGE <tboulogne@tng-concepts.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
+
+#: fields.py:14
+msgid "Please check your math and try again."
+msgstr "Merci de réviser vos maths."
+
+#: fields.py:15
+msgid "Enter a whole number."
+msgstr "Merci d'indiquer un nombre entier"
+
+#: fields.py:41
+#, python-format
+msgid "%(params)s must be omitted when widget is provided for %(name)s."
+msgstr ""
+"%(params)s doit être omise quand le widget est activé pour %(name)s."
+
+#: widgets.py:17
+#, python-format
+msgid "What is %(num1)i %(operator)s %(num2)i? "
+msgstr "Combien font %(num1)i %(operator)s %(num2)i?"
+
+#~ msgid ""
+#~ "MathCaptchaWidget requires positive integers for start_int and end_int."
+#~ msgstr ""
+#~ "MathCaptchaWidget requiert des entiers positifs pour start_int anetd end_int."
+#~ "end_int."
+
+#~ msgid "MathCaptchaWidget requires end_int be greater than start_int."
+#~ msgstr "MathCaptchaWidget requiert que end_int soit plus grand que start_int."
