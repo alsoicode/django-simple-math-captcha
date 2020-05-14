@@ -21,6 +21,8 @@ You can do any of the following to install ``django-simple-math-captcha``
 - Download or "git clone" the package and run ``setup.py``.
 - Download or "git clone" the package and put the ``simplemathcaptcha``
   directory on your ``PYTHONPATH``.
+ 
+ Add `simplemathcaptcha` to your INSTALLED_APPS in django settings
 
 Usage
 =====
