@@ -1,11 +1,7 @@
-from __future__ import absolute_import
-from __future__ import unicode_literals
-
 from random import randint, choice
 from hashlib import sha1
 
 from django.conf import settings
-from django.utils import six
 
 MULTIPLY = '*'
 ADD = '+'
@@ -19,7 +15,7 @@ OPERATORS = tuple(CALCULATIONS)
 
 
 def hash_answer(value):
-    answer = six.text_type(value)
+    answer = str(value)
     to_encode = (settings.SECRET_KEY + answer).encode('utf-8')
     return sha1(to_encode).hexdigest()
 
