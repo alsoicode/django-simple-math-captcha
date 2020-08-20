@@ -1,10 +1,6 @@
-from __future__ import absolute_import
-from __future__ import unicode_literals
-
-import mock
+from unittest import mock
 
 from django import forms
-from django.utils import six
 from django.test import TestCase
 
 from simplemathcaptcha.fields import MathCaptchaField
@@ -28,8 +24,8 @@ class FormTests(TestCase):
             captcha = MathCaptchaField()
 
         f = F()
-        result1 = six.text_type(f)
-        result2 = six.text_type(f)
+        result1 = str(f)
+        result2 = str(f)
         self.assertHTMLEqual(result1, """
             <tr><th><label for="id_captcha_0">Captcha:</label></th><td>
                 <span class="captcha-question">What is 1 + 3?</span>
