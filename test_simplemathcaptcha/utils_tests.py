@@ -1,9 +1,5 @@
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from unittest import mock
 
-import mock
-
-from django.utils import six
 from django.test import TestCase
 
 from simplemathcaptcha import utils
@@ -49,7 +45,7 @@ class UtilsTests(TestCase):
 
     def test_hash_answer_is_string(self):
         result = utils.hash_answer(1)
-        self.assertIsInstance(result, six.string_types)
+        self.assertIsInstance(result, str)
 
     def test_hash_answer_is_repeatable(self):
         result1 = utils.hash_answer(1)

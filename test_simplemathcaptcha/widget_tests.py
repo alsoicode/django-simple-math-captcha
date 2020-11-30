@@ -1,9 +1,5 @@
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from unittest import mock
 
-import mock
-
-from django.utils import six
 from django.test import TestCase
 
 from simplemathcaptcha.widgets import MathCaptchaWidget
@@ -17,7 +13,7 @@ class WidgetTests(TestCase):
         self.assertEqual(len(w.widgets), 2)
         self.assertEqual(w.start_int, 1)
         self.assertEqual(w.end_int, 10)
-        self.assertEqual(six.text_type(w.question_tmpl),
+        self.assertEqual(str(w.question_tmpl),
                          'What is %(num1)i %(operator)s %(num2)i? ')
         self.assertEqual(w.question_class, 'captcha-question')
 
