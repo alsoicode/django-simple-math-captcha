@@ -2,9 +2,6 @@
 django-simple-math-captcha
 ==========================
 
-.. image:: https://travis-ci.org/alsoicode/django-simple-math-captcha.svg
-   :target: https://travis-ci.org/alsoicode/django-simple-math-captcha
-
 Current Version: 1.0.9
 
 What is it?
@@ -21,6 +18,8 @@ You can do any of the following to install ``django-simple-math-captcha``
 - Download or "git clone" the package and run ``setup.py``.
 - Download or "git clone" the package and put the ``simplemathcaptcha``
   directory on your ``PYTHONPATH``.
+ 
+Add `simplemathcaptcha` to your INSTALLED_APPS in django settings
 
 Usage
 =====
