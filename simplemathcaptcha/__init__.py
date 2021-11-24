@@ -1,15 +1,16 @@
-VERSION = (1, 1, "f", 0)  # following PEP 386
+VERSION = (1, 1, 0)
 DEV_N = None
 
 
-def get_version():  # pragma: nocover
-    version = "%s.%s" % (VERSION[0], VERSION[1])
+def get_version():
+    version = '{0}.{1}'.format(VERSION[0], VERSION[1])
     if VERSION[2]:
-        version = "%s.%s" % (version, VERSION[2])
-    if VERSION[3] != "f":
-        version = "%s%s%s" % (version, VERSION[3], VERSION[4])
-        if DEV_N:
-            version = "%s.dev%s" % (version, DEV_N)
+        version = '{0}.{1}'.format(version, VERSION[2])
+    try:
+        if VERSION[3]:
+            version = '{0}.{1}'.format(version, VERSION[3])
+    except IndexError:
+        pass
     return version
 
 
