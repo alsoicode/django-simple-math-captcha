@@ -2,7 +2,7 @@
 django-simple-math-captcha
 ==========================
 
-Current Version: 1.0.9
+Current Version: 1.1.0
 
 What is it?
 ===========
@@ -18,7 +18,7 @@ You can do any of the following to install ``django-simple-math-captcha``
 - Download or "git clone" the package and run ``setup.py``.
 - Download or "git clone" the package and put the ``simplemathcaptcha``
   directory on your ``PYTHONPATH``.
- 
+
 Add `simplemathcaptcha` to your INSTALLED_APPS in django settings
 
 Usage
@@ -26,7 +26,7 @@ Usage
 
 Forms
 -----
-To add the captcha field to your form::
+To add the captcha field to your form:
 
     from django import forms
     from simplemathcaptcha.fields import MathCaptchaField
@@ -106,10 +106,10 @@ Features
 - Uses SHA1 hashing of answer with your SECRET_KEY
 - Unit tests are provided in the source
 
-Requirements
-============
-- Python 2.6+
-- Django 1.4+
+Compatibility
+=============
+
+For any version of Django that doesn't support Python 3, use django-simple-math-captcha 1.0.9 or below, otherwise use 1.1.0 or above.
 
 License
 =======

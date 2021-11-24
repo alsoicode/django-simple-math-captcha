@@ -9,3 +9,4 @@ django_simple_math_captcha.egg-info
 dist
 .DS_Store
 .vscode/settings.json
+__pycache__
