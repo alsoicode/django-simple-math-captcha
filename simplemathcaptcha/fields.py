@@ -1,5 +1,5 @@
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy
 from django.core.exceptions import ValidationError
 
 from .widgets import MathCaptchaWidget
@@ -8,8 +8,8 @@ from .utils import hash_answer
 
 class MathCaptchaField(forms.MultiValueField):
     default_error_messages = {
-        'invalid': _('Please check your math and try again.'),
-        'invalid_number': _('Enter a whole number.'),
+        'invalid': gettext_lazy('Please check your math and try again.'),
+        'invalid_number': gettext_lazy('Enter a whole number.'),
     }
 
     def __init__(self, *args, **kwargs):
@@ -35,7 +35,7 @@ class MathCaptchaField(forms.MultiValueField):
         if 'widget' not in kwargs or not kwargs['widget']:
             kwargs['widget'] = MathCaptchaWidget(**widget_params)
         elif widget_params:
-            msg = _('%(params)s must be omitted when widget is provided for %(name)s.')
+            msg = gettext_lazy('%(params)s must be omitted when widget is provided for %(name)s.')
             msg = msg % {'params': ' and '.join(list(widget_params)),
                          'name': self.__class__.__name__}
             raise TypeError(msg)
