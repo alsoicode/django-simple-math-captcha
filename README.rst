@@ -4,7 +4,7 @@ django-simple-math-captcha
 
 Current Version: 2.0.0
 
-For Django 4, use 2.0,0. For Django < 4, use 1.1.0
+For Django 4, use 2.0.0. For Django < 4, use 1.1.0
 
 What is it?
 ===========
