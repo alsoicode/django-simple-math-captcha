@@ -1,6 +1,6 @@
 from django import forms
 from django.template.defaultfilters import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy
 
 from .utils import hash_answer, get_operator, get_numbers, calculate
 
@@ -13,7 +13,7 @@ class MathCaptchaWidget(forms.MultiWidget):
         self.start_int, self.end_int = self.verify_numbers(start_int, end_int)
         self.question_class = question_class or 'captcha-question'
         self.question_tmpl = (
-            question_tmpl or _('What is %(num1)i %(operator)s %(num2)i? '))
+            question_tmpl or gettext_lazy('What is %(num1)i %(operator)s %(num2)i? '))
         self.question_html = None
         widget_attrs = {'size': '5'}
         widget_attrs.update(attrs or {})
