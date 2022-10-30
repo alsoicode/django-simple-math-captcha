@@ -1,6 +1,6 @@
 from django import forms
 from django.template.defaultfilters import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from .utils import hash_answer, get_operator, get_numbers, calculate
 
